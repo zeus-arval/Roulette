@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Roulette"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="900" MinWidth="900" MaxWidth="900" MinHeight="550" MaxHeight="550">
+        Title="MainWindow" Height="550" Width="910" MinWidth="910" MaxWidth="910" MinHeight="550" MaxHeight="550">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="140"/>
+        </Grid.RowDefinitions>
     </Grid>
 </Window>
