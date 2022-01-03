@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Roulette"
         mc:Ignorable="d"
-        Title="Roulette" Height="550" Width="910" MinWidth="910" MaxWidth="910" MinHeight="550" MaxHeight="550">
+        Title="Roulette" Height="560" Width="910" MinWidth="910" MaxWidth="910" MinHeight="560" MaxHeight="560" Icon="Source/images/logo.png">
     <Grid Name="MainGrid">
         <Grid.Resources>
             <Style TargetType="{x:Type TextBlock}">
@@ -46,15 +46,15 @@
             <RowDefinition Height="120"/>
             <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
-        <Grid Name="Zero" Grid.Row="1" Grid.Column="1">
-            <Polygon Fill="Green" Stroke="WhiteSmoke" StrokeThickness="2" StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round"
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Polygon Name="zeroPolygon" Fill="Green" Stroke="WhiteSmoke" StrokeThickness="2" StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round"
                      Points="
                      21,1,
                      64,1,
                      64,179,
                      20,179,
                      1,90"/>
-            <TextBlock Text="0" Name="Text_0" Foreground="White"/>
+            <TextBlock Text="0" Name="text_0" Foreground="White"/>
         </Grid>
         <Grid Name="Numbers" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4">
             <Grid.Resources>
@@ -94,33 +94,33 @@
                 </Grid.RowDefinitions>
                 <!--Top Elements-->
                 <Rectangle Grid.Column="0" Grid.Row="0" Name="Rectangle_3" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" Name="Text_3" Text="3" Foreground="Black"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Name="text_3" Text="3" Foreground="Black"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="0" Name="Rectangle_6" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="0" Name="Text_6" Text="6" Foreground="White"/>
+                <TextBlock Grid.Column="2" Grid.Row="0" Name="text_6" Text="6" Foreground="White"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="0" Name="Rectangle_9" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="0" Name="Text_9" Text="9" Foreground="Black"/>
+                <TextBlock Grid.Column="4" Grid.Row="0" Name="text_9" Text="9" Foreground="Black"/>
 
                 <!-- Middle elements-->
                 <Rectangle Grid.Column="0" Grid.Row="2" Name="Rectangle_2" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="2" Name="Text_2" Text="2" Foreground="White"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Name="text_2" Text="2" Foreground="White"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="2" Name="Rectangle_5" Fill="Red"/>
-                <TextBlock Grid.Column="2" Grid.Row="2" Name="Text_5" Text="5" Foreground="Black"/>
+                <TextBlock Grid.Column="2" Grid.Row="2" Name="text_5" Text="5" Foreground="Black"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="2" Name="Rectangle_8" Fill="Black"/>
-                <TextBlock Grid.Column="4" Grid.Row="2" Name="Text_8" Text="8" Foreground="White"/>
+                <TextBlock Grid.Column="4" Grid.Row="2" Name="text_8" Text="8" Foreground="White"/>
 
                 <!-- Bottom elements-->
                 <Rectangle Grid.Column="0" Grid.Row="4" Name="Rectangle_1" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="4" Name="Text_1" Text="1" Foreground="Black"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Name="text_1" Text="1" Foreground="Black"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="4" Name="Rectangle_4" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Name="Text_4" Text="4" Foreground="White"/>
+                <TextBlock Grid.Column="2" Grid.Row="4" Name="text_4" Text="4" Foreground="White"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="4" Name="Rectangle_7" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="4" Name="Text_7" Text="7" Foreground="Black"/>
+                <TextBlock Grid.Column="4" Grid.Row="4" Name="text_7" Text="7" Foreground="Black"/>
             </Grid>
 
             <Grid Name="SecondNineNumbersGrid" Grid.Column="1">
@@ -141,33 +141,33 @@
                 </Grid.RowDefinitions>
                 <!--Top Elements-->
                 <Rectangle Grid.Column="0" Grid.Row="0" Name="Rectangle_12" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" Name="Text_12" Text="12" Foreground="Black"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Name="text_12" Text="12" Foreground="Black"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="0" Name="Rectangle_15" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="0" Name="Text_15" Text="15" Foreground="White"/>
+                <TextBlock Grid.Column="2" Grid.Row="0" Name="text_15" Text="15" Foreground="White"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="0" Name="Rectangle_18" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="0" Name="Text_18" Text="18" Foreground="Black"/>
+                <TextBlock Grid.Column="4" Grid.Row="0" Name="text_18" Text="18" Foreground="Black"/>
 
                 <!-- Middle elements-->
                 <Rectangle Grid.Column="0" Grid.Row="2" Name="Rectangle_11" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="2" Name="Text_11" Text="11" Foreground="White"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Name="text_11" Text="11" Foreground="White"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="2" Name="Rectangle_14" Fill="Red"/>
-                <TextBlock Grid.Column="2" Grid.Row="2" Name="Text_14" Text="14" Foreground="Black"/>
+                <TextBlock Grid.Column="2" Grid.Row="2" Name="text_14" Text="14" Foreground="Black"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="2" Name="Rectangle_17" Fill="Black"/>
-                <TextBlock Grid.Column="4" Grid.Row="2" Name="Text_17" Text="17" Foreground="White"/>
+                <TextBlock Grid.Column="4" Grid.Row="2" Name="text_17" Text="17" Foreground="White"/>
 
                 <!-- Bottom elements-->
                 <Rectangle Grid.Column="0" Grid.Row="4" Name="Rectangle_10" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="4" Name="Text_10" Text="10" Foreground="White"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Name="text_10" Text="10" Foreground="White"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="4" Name="Rectangle_13" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Name="Text_13" Text="13" Foreground="White"/>
+                <TextBlock Grid.Column="2" Grid.Row="4" Name="text_13" Text="13" Foreground="White"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="4" Name="Rectangle_16" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="4" Name="Text_16" Text="16" Foreground="Black"/>
+                <TextBlock Grid.Column="4" Grid.Row="4" Name="text_16" Text="16" Foreground="Black"/>
             </Grid>
 
             <Grid Name="ThirdNineNumbersGrid" Grid.Column="2">
@@ -188,33 +188,33 @@
                 </Grid.RowDefinitions>
                 <!--Top Elements-->
                 <Rectangle Grid.Column="0" Grid.Row="0" Name="Rectangle_21" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" Name="Text_21" Text="21" Foreground="Black"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Name="text_21" Text="21" Foreground="Black"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="0" Name="Rectangle_24" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="0" Name="Text_24" Text="24" Foreground="White"/>
+                <TextBlock Grid.Column="2" Grid.Row="0" Name="text_24" Text="24" Foreground="White"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="0" Name="Rectangle_27" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="0" Name="Text_27" Text="27" Foreground="Black"/>
+                <TextBlock Grid.Column="4" Grid.Row="0" Name="text_27" Text="27" Foreground="Black"/>
 
                 <!-- Middle elements-->
                 <Rectangle Grid.Column="0" Grid.Row="2" Name="Rectangle_20" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="2" Name="Text_20" Text="20" Foreground="White"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Name="text_20" Text="20" Foreground="White"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="2" Name="Rectangle_23" Fill="Red"/>
-                <TextBlock Grid.Column="2" Grid.Row="2" Name="Text_23" Text="23" Foreground="Black"/>
+                <TextBlock Grid.Column="2" Grid.Row="2" Name="text_23" Text="23" Foreground="Black"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="2" Name="Rectangle_26" Fill="Black"/>
-                <TextBlock Grid.Column="4" Grid.Row="2" Name="Text_26" Text="26" Foreground="White"/>
+                <TextBlock Grid.Column="4" Grid.Row="2" Name="text_26" Text="26" Foreground="White"/>
 
                 <!-- Bottom elements-->
                 <Rectangle Grid.Column="0" Grid.Row="4" Name="Rectangle_19" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="4" Name="Text_19" Text="19" Foreground="Black"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Name="text_19" Text="19" Foreground="Black"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="4" Name="Rectangle_22" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Name="Text_22" Text="22" Foreground="White"/>
+                <TextBlock Grid.Column="2" Grid.Row="4" Name="text_22" Text="22" Foreground="White"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="4" Name="Rectangle_25" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="4" Name="Text_25" Text="25" Foreground="Black"/>
+                <TextBlock Grid.Column="4" Grid.Row="4" Name="text_25" Text="25" Foreground="Black"/>
             </Grid>
 
             <Grid Name="FourthNineNumbersGrid" Grid.Column="3">
@@ -235,33 +235,33 @@
                 </Grid.RowDefinitions>
                 <!--Top Elements-->
                 <Rectangle Grid.Column="0" Grid.Row="0" Name="Rectangle_30" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" Name="Text_30" Text="30" Foreground="Black"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Name="text_30" Text="30" Foreground="Black"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="0" Name="Rectangle_33" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="0" Name="Text_33" Text="33" Foreground="White"/>
+                <TextBlock Grid.Column="2" Grid.Row="0" Name="text_33" Text="33" Foreground="White"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="0" Name="Rectangle_36" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="0" Name="Text_36" Text="36" Foreground="Black"/>
+                <TextBlock Grid.Column="4" Grid.Row="0" Name="text_36" Text="36" Foreground="Black"/>
 
                 <!-- Middle elements-->
                 <Rectangle Grid.Column="0" Grid.Row="2" Name="Rectangle_29" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="2" Name="Text_29" Text="29" Foreground="White"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Name="text_29" Text="29" Foreground="White"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="2" Name="Rectangle_32" Fill="Red"/>
-                <TextBlock Grid.Column="2" Grid.Row="2" Name="Text_32" Text="32" Foreground="Black"/>
+                <TextBlock Grid.Column="2" Grid.Row="2" Name="text_32" Text="32" Foreground="Black"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="2" Name="Rectangle_35" Fill="Black"/>
-                <TextBlock Grid.Column="4" Grid.Row="2" Name="Text_35" Text="35" Foreground="White"/>
+                <TextBlock Grid.Column="4" Grid.Row="2" Name="text_35" Text="35" Foreground="White"/>
 
                 <!-- Bottom elements-->
                 <Rectangle Grid.Column="0" Grid.Row="4" Name="Rectangle_28" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="4" Name="Text_28" Text="28" Foreground="White"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Name="text_28" Text="28" Foreground="White"/>
 
                 <Rectangle Grid.Column="2" Grid.Row="4" Name="Rectangle_31" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Name="Text_31" Text="31" Foreground="White"/>
+                <TextBlock Grid.Column="2" Grid.Row="4" Name="text_31" Text="31" Foreground="White"/>
 
                 <Rectangle Grid.Column="4" Grid.Row="4" Name="Rectangle_34" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="4" Name="Text_34" Text="34" Foreground="Black"/>
+                <TextBlock Grid.Column="4" Grid.Row="4" Name="text_34" Text="34" Foreground="Black"/>
             </Grid>
         </Grid>
         <Grid Name="ColumnGrid" Grid.Row="1" Grid.Column="6">
@@ -290,7 +290,7 @@
                 </Style>
             </Grid.Resources>
             <Rectangle Name="ColumnC" Grid.Row="0" Fill="Black"/>
-            <TextBlock Grid.Row="0" Name="ColumnCText" Text="2 to 1" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock Grid.Row="0" Name="ColumnCText" Text="C" Foreground="White" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -302,7 +302,7 @@
             </TextBlock>
 
             <Rectangle Name="ColumnB" Grid.Row="2" Fill="Black"/>
-            <TextBlock Grid.Row="2" Name="ColumnBText" Text="2 to 1" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock Grid.Row="2" Name="ColumnBText" Text="B" Foreground="White" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -314,7 +314,7 @@
             </TextBlock>
 
             <Rectangle Name="ColumnA" Grid.Row="4" Fill="Black"/>
-            <TextBlock Grid.Row="4" Name="ColumnAText" Text="2 to 1" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock Grid.Row="4" Name="ColumnAText" Text="A" Foreground="White" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -380,18 +380,6 @@
             <Rectangle Name="is19To36" Grid.Row="2" Grid.Column="2" Width="97" Height="52" HorizontalAlignment="Right"/>
             <TextBlock Name="is19To36Text" Grid.Row="2" Grid.Column="2" Text="19 to 36" Margin="100,0,0,0"/>
         </Grid>
-        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="90"/>
-                <ColumnDefinition Width="70"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="85"/>
-                <RowDefinition Height="35"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Column="0" Grid.Row="1" Content="Client status:" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="WhiteSmoke"/>
-            <Label Name="clientStatusLabel" Grid.Column="2" Grid.Row="1" Content="Offline" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF98C8C"/>
-        </Grid>
         <Popup x:Name="winningResultsPopup" IsOpen="False" PopupAnimation="Fade" Placement="Bottom" PlacementRectangle="880,330,0,0" AllowsTransparency="True" >
             <Border BorderThickness="1" BorderBrush="White" CornerRadius="5" Background="#FF626262" HorizontalAlignment="Right" 
                 VerticalAlignment="Bottom" Width="110" Height="160" Visibility="Visible">
@@ -404,7 +392,7 @@
                 </Border.Resources>
                 <StackPanel Orientation="Vertical">
                     <Border BorderBrush="Black" BorderThickness="1" Background="Black" CornerRadius="4,4,0,0" Height="50" VerticalAlignment="Top" Width="109">
-                        <Label Name="winningNumberLabel" Content="22" FontSize="36" VerticalContentAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0,0,0,0" />
+                        <Label Name="winningNumberLabel" Content="22" FontSize="42" VerticalContentAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0,-5,0,0" />
                     </Border>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -423,16 +411,60 @@
                                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             </Style>
                         </Grid.Resources>
-                        <Label Grid.Row="1" Name="isBlackLabel" Content="Black"/>
-                        <Label Grid.Row="2" Name="isEvenLabel" Content="Even"/>
+                        <Label Grid.Row="1" Name="isEvenLabel" Content="Even"/>
+                        <Label Grid.Row="2" Name="isBlackLabel" Content="Black"/>
                         <Label Grid.Row="3" Name="dozenNumberLabel" Content="2nd Dozen"/>
                         <Label Grid.Row="4" Name="columnNumberLabel" Content="Column A"/>
-                        <Label Grid.Row="5" Name="isSmallLabel" Content="High"/>
+                        <Label Grid.Row="5" Name="isSmallLabel" Content="19 to 36"/>
                     </Grid>
                 </StackPanel>
             </Border>
         </Popup>
-        <Button x:Name="button" Content="Press me" Grid.Row="0" Grid.Column="0" Width="60" Height="20" Foreground="Black" Click="button_Click" />
-        <Label Content="Label" HorizontalAlignment="Left" Margin="-152,169.2,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Grid x:Name="PreviousWinningNumbersGrid" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="26"/>
+                </Style>
+                <Style TargetType="{x:Type Ellipse}">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="StrokeStartLineCap" Value="Round"/>
+                    <Setter Property="StrokeEndLineCap" Value="Round"/>
+                    <Setter Property="StrokeLineJoin" Value="Round"/>
+                    <Setter Property="StrokeThickness" Value="2"/>
+                    <Setter Property="Width" Value="80"/>
+                    <Setter Property="Height" Value="80"/>
+                    <Setter Property="Stroke" Value="White"/>
+                    <Setter Property="Fill" Value="Black"/>
+                </Style>
+            </Grid.Resources>
+            <Ellipse Name="previousWinningEllipse_1" Grid.Column="1" Grid.Row="1"/>
+            <TextBlock Name="previousWinningTextBlock_1" Grid.Column="1" Grid.Row="1"/>
+            <Ellipse Name="previousWinningEllipse_2" Grid.Column="2" Grid.Row="1"/>
+            <TextBlock Name="previousWinningTextBlock_2" Grid.Column="2" Grid.Row="1"/>
+            <Ellipse Name="previousWinningEllipse_3" Grid.Column="3" Grid.Row="1"/>
+            <TextBlock Name="previousWinningTextBlock_3" Grid.Column="3" Grid.Row="1"/>
+            <Ellipse Name="previousWinningEllipse_4" Grid.Column="4" Grid.Row="1"/>
+            <TextBlock Name="previousWinningTextBlock_4" Grid.Column="4" Grid.Row="1"/>
+            <Ellipse Name="previousWinningEllipse_5" Grid.Column="5" Grid.Row="1"/>
+            <TextBlock Name="previousWinningTextBlock_5" Grid.Column="5" Grid.Row="1"/>
+        </Grid>
     </Grid>
 </Window>
