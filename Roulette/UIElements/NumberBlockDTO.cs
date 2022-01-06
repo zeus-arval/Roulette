@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Roulette.UIElements
+﻿namespace Roulette.UIElements
 {
     /// <summary>
     /// Class for holding data for TextBlock and Rectangle elements for a certain number
@@ -13,9 +7,9 @@ namespace Roulette.UIElements
     {
         public int GridColumn { get; set; }
         public int GridRow { get; set; }
-        public string RectangleName { get; set; }
+        public string BorderTag { get; set; }
         public string TextBlockName { get; set; }
-        public string Fill { get; set; }
+        public string Background { get; set; }
         public string Foreground { get; set; }
         public string Text { get; set; }
     }
