@@ -1,22 +1,11 @@
-﻿using Microsoft.Win32;
-using Roulette.Controllers;
+﻿using Roulette.Controllers;
 using Roulette.Models;
+using Roulette.UIElements;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -45,7 +34,7 @@ namespace Roulette
         private DispatcherTimer _popupTimer;
         private MediaPlayer _mediaPlayer;
         private RouletteController _controller;
-        private Brush _previousRectangleColor;
+        private Brush _previousBorderColor;
         private Brush _previousTextColor;
         private InputData _winningNumber;
 
@@ -59,7 +48,7 @@ namespace Roulette
         public MainWindow()
         {
             _previousWinningNumberList = new List<InputData>();
-            _previousRectangleColor = null;
+            _previousBorderColor = null;
             _previousTextColor = null;
             InitializeComponent();
 
@@ -101,13 +90,11 @@ namespace Roulette
         {
             UpdatePreviousWinningNumbers();
             ChangePopupContent();
-            Rectangle winningNumberRectangle = (Rectangle)FindName($"Rectangle_{_winningNumber?.InputValue}");
-            TextBlock winningTextBlock = (TextBlock)FindName($"text_{_winningNumber?.InputValue}");
 
             if (_previousTextColor != null)
             {
                 //Return Previous Colours
-                ChangeWinningNumberColors(_previousRectangleColor, _previousTextColor, PreviousNumber);
+                ChangeWinningNumberColors(_previousBorderColor, _previousTextColor, PreviousNumber);
                 ChangeWinnningConditionsColors(BLACK_COLOR, WHITE_COLOR, PreviousNumber);
             }
             //Change new winning positions' colors
@@ -172,29 +159,30 @@ namespace Roulette
             zeroPolygon.Fill = WINNING_BACKGROUND_BRUSH;
             text_0.Foreground = WINNING_FOREGROUND_BRUSH;
 
-            _previousRectangleColor = Brushes.LightGreen;
+            _previousBorderColor = Brushes.LightGreen;
             _previousTextColor = Brushes.Black;
             if (_previousWinningNumberList[_previousWinningNumberList.Count - 1] is null) return;
-
-            Rectangle numberRectangle = (Rectangle)FindName($"Rectangle_{PreviousNumber?.InputValue}");
-            TextBlock numberTextBlock = (TextBlock)FindName($"text_{PreviousNumber?.InputValue}");
 
             ChangeWinnningConditionsColors(BLACK_COLOR, WHITE_COLOR, PreviousNumber);
         }
 
         /// <summary>
-        /// Changes colors of previous or current number's Rectangle and TextBlock
+        /// Changes colors of previous or current number's Border and TextBlock
         /// </summary>
         private void ChangeWinningNumberColors(Brush backgroundColor, Brush foregroundColor, InputData data)
         {
             if (!data.IsZero())
             {
-                Rectangle numberRectangle = (Rectangle)FindName($"Rectangle_{data?.InputValue}");
-                TextBlock numberTextBlock = (TextBlock)FindName($"text_{data?.InputValue}");
-                _previousRectangleColor = numberRectangle.Fill;
+                string borderTag = $"Border_{data?.InputValue}";
+                string textBlockTag = $"text_{data?.InputValue}";
+
+                Border numberBorder;
+                TextBlock numberTextBlock;
+                (numberBorder, numberTextBlock) = FindNumberBlockByTag(borderTag);
+                _previousBorderColor = numberBorder.Background;
                 _previousTextColor = numberTextBlock.Foreground;
 
-                ColorRectangle(numberRectangle, backgroundColor);
+                ColorBorder(numberBorder, backgroundColor);
                 ColorTextBlock(numberTextBlock, foregroundColor);
             }
             else
@@ -213,37 +201,60 @@ namespace Roulette
             if (number.IsZero()) return;
 
             //Check if is Even
-            ColorRectangle(number.IsEven() ? isEven : isOdd, backgroundColor);
+            ColorBorder(number.IsEven() ? isEven : isOdd, backgroundColor);
             ColorTextBlock(number.IsEven() ? isEvenText : isOddText, foregroundColor);
 
             //Check if is Zero
 
             //Check if is less than 19
-            ColorRectangle(number.IsSmall() ? is1To18 : is19To36, backgroundColor);
+            ColorBorder(number.IsSmall() ? is1To18 : is19To36, backgroundColor);
             ColorTextBlock(number.IsSmall() ? is1To18Text : is19To36Text, foregroundColor);
 
             //Check if is Black
-            ColorRectangle(number.IsBlack() ? isBlack : isRed, number.IsBlack() ? backgroundColor : RED_COLOR);
+            ColorBorder(number.IsBlack() ? isBlack : isRed, number.IsBlack() ? backgroundColor : RED_COLOR);
 
-            var columnRectangle = (Rectangle)FindName($"Column{number.ColumnNumber()}");
+            var columnBorder = (Border)FindName($"Column{number.ColumnNumber()}");
             var columnTextBlock = (TextBlock)FindName($"Column{number.ColumnNumber()}Text");
 
             //Check ColumnNumber
-            ColorRectangle(columnRectangle, backgroundColor);
+            ColorBorder(columnBorder, backgroundColor);
             ColorTextBlock(columnTextBlock, foregroundColor);
 
-            var dozenRectangle = (Rectangle)FindName($"is{(int)number.DozenNumber()}Dozen");
+            var dozenBorder = (Border)FindName($"is{(int)number.DozenNumber()}Dozen");
             var dozenTextBlock = (TextBlock)FindName($"is{(int)number.DozenNumber()}DozenText");
 
             //Check the dozen number
-            ColorRectangle(dozenRectangle, backgroundColor);
+            ColorBorder(dozenBorder, backgroundColor);
             ColorTextBlock(dozenTextBlock, foregroundColor);
         }
 
         /// <summary>
-        /// Colors Rectangle's Fill into Brush
+        /// Returns Number block (Border + TextBlock) by the number's tag
         /// </summary>
-        private void ColorRectangle(Rectangle rectangle, Brush brush) => rectangle.Fill = brush;
+        public (Border, TextBlock) FindNumberBlockByTag(string tag)
+        {
+            foreach (var item in ItemControlNumbers.Items)
+            {
+                Border border = FindItemControl(ItemControlNumbers, "numberBorder", item) as Border;
+                if (border.Tag.ToString() == tag) return (border, (TextBlock)border.Child);
+            }
+            return (new Border(), new TextBlock());
+        }
+
+        /// <summary>
+        /// Returns content from container(ContentPresenter)
+        /// </summary>
+        private object FindItemControl(ItemsControl itemsControl, string controlName, object item)
+        {
+            ContentPresenter container = itemsControl.ItemContainerGenerator.ContainerFromItem(item) as ContentPresenter;
+            container.ApplyTemplate();
+            return container.ContentTemplate.FindName(controlName, container);
+        }
+
+        /// <summary>
+        /// Colors Border's Foreground into Brush
+        /// </summary>
+        private void ColorBorder(Border border, Brush brush) => border.Background = brush;
 
         /// <summary>
         /// Colors TextBlock's Fill into Brush
@@ -269,6 +280,14 @@ namespace Roulette
             winningResultsPopup.IsOpen = false;
             _popupTimer.Stop();
             _mediaPlayer.Stop();
+        }
+
+        /// <summary>
+        /// Loading generated Number blocks -> Border + TextBlock
+        /// </summary>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ItemControlNumbers.ItemsSource = NumbersListGenerator.GenerateNumbers();
         }
     }
 }

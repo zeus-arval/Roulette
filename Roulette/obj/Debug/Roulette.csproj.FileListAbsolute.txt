@@ -57,3 +57,4 @@ C:\Users\Artur\source\repos\sample_project\Roulette\Roulette\obj\Debug\Roulette.
 C:\Users\Artur\source\repos\sample_project\Roulette\Roulette\obj\Debug\Roulette.csproj.CopyComplete
 C:\Users\Artur\source\repos\sample_project\Roulette\Roulette\obj\Debug\Roulette.exe
 C:\Users\Artur\source\repos\sample_project\Roulette\Roulette\obj\Debug\Roulette.pdb
+C:\Users\Artur\source\repos\sample_project\Roulette\Roulette\obj\Debug\Roulette.csproj.AssemblyReference.cache
