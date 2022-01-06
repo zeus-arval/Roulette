@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Roulette"
         mc:Ignorable="d"
-        Title="Roulette" Height="560" Width="910" MinWidth="910" MaxWidth="910" MinHeight="560" MaxHeight="560" Icon="Source/images/logo.png">
+        Title="Roulette" Height="560" Width="910" MinWidth="910" MaxWidth="910" MinHeight="560" MaxHeight="560" Icon="Source/images/logo.png" Loaded="Window_Loaded">
+    <Window.Resources>
+        <GridLength x:Key="ColumnBigWidth">45</GridLength>
+        <GridLength x:Key="ColumnSmallWidth">5</GridLength>
+        <GridLength x:Key="RowBigHeight">56</GridLength>
+        <GridLength x:Key="RowSmallHeight">6</GridLength>
+    </Window.Resources>
     <Grid Name="MainGrid">
         <Grid.Resources>
             <Style TargetType="{x:Type TextBlock}">
@@ -13,13 +19,6 @@
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="FontFamily" Value="Times New Roman"/>
                 <Setter Property="FontSize" Value="26"/>
-            </Style>
-            <Style TargetType="{x:Type Rectangle}">
-                <Setter Property="StrokeThickness" Value="0.3"/>
-                <Setter Property="Stroke" Value="White"/>
-                <Setter Property="StrokeLineJoin" Value="Round"/>
-                <Setter Property="StrokeStartLineCap" Value="Round"/>
-                <Setter Property="StrokeEndLineCap" Value="Round"/>
             </Style>
         </Grid.Resources>
         <Grid.Background>
@@ -56,213 +55,22 @@
                      1,90"/>
             <TextBlock Text="0" Name="text_0" Foreground="White"/>
         </Grid>
-        <Grid Name="Numbers" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4">
-            <Grid.Resources>
-                <Style TargetType="{x:Type Rectangle}">
-                    <Setter Property="Stroke" Value="White"/>
-                    <Setter Property="StrokeLineJoin" Value="Round"/>
-                    <Setter Property="StrokeStartLineCap" Value="Round"/>
-                    <Setter Property="StrokeEndLineCap" Value="Round"/>
-                    <Setter Property="StrokeThickness" Value="2"/>
-                    <Setter Property="Width" Value="45.5"/>
-                    <Setter Property="Height" Value="56"/>
-                    <Setter Property="RadiusX" Value="2"/>
-                    <Setter Property="RadiusY" Value="2"/>
-                </Style>
-            </Grid.Resources>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="150"/>
-            </Grid.ColumnDefinitions>
-            <Grid Name="FirstNineNumbersGrid" Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="56"/>
-                    <RowDefinition Height="6"/>
-                    <RowDefinition Height="56"/>
-                    <RowDefinition Height="6"/>
-                    <RowDefinition Height="56"/>
-                </Grid.RowDefinitions>
-                <!--Top Elements-->
-                <Rectangle Grid.Column="0" Grid.Row="0" Name="Rectangle_3" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" Name="text_3" Text="3" Foreground="Black"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="0" Name="Rectangle_6" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="0" Name="text_6" Text="6" Foreground="White"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="0" Name="Rectangle_9" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="0" Name="text_9" Text="9" Foreground="Black"/>
-
-                <!-- Middle elements-->
-                <Rectangle Grid.Column="0" Grid.Row="2" Name="Rectangle_2" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="2" Name="text_2" Text="2" Foreground="White"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="2" Name="Rectangle_5" Fill="Red"/>
-                <TextBlock Grid.Column="2" Grid.Row="2" Name="text_5" Text="5" Foreground="Black"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="2" Name="Rectangle_8" Fill="Black"/>
-                <TextBlock Grid.Column="4" Grid.Row="2" Name="text_8" Text="8" Foreground="White"/>
-
-                <!-- Bottom elements-->
-                <Rectangle Grid.Column="0" Grid.Row="4" Name="Rectangle_1" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="4" Name="text_1" Text="1" Foreground="Black"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="4" Name="Rectangle_4" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Name="text_4" Text="4" Foreground="White"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="4" Name="Rectangle_7" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="4" Name="text_7" Text="7" Foreground="Black"/>
-            </Grid>
-
-            <Grid Name="SecondNineNumbersGrid" Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="56"/>
-                    <RowDefinition Height="6"/>
-                    <RowDefinition Height="56"/>
-                    <RowDefinition Height="6"/>
-                    <RowDefinition Height="56"/>
-                </Grid.RowDefinitions>
-                <!--Top Elements-->
-                <Rectangle Grid.Column="0" Grid.Row="0" Name="Rectangle_12" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" Name="text_12" Text="12" Foreground="Black"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="0" Name="Rectangle_15" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="0" Name="text_15" Text="15" Foreground="White"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="0" Name="Rectangle_18" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="0" Name="text_18" Text="18" Foreground="Black"/>
-
-                <!-- Middle elements-->
-                <Rectangle Grid.Column="0" Grid.Row="2" Name="Rectangle_11" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="2" Name="text_11" Text="11" Foreground="White"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="2" Name="Rectangle_14" Fill="Red"/>
-                <TextBlock Grid.Column="2" Grid.Row="2" Name="text_14" Text="14" Foreground="Black"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="2" Name="Rectangle_17" Fill="Black"/>
-                <TextBlock Grid.Column="4" Grid.Row="2" Name="text_17" Text="17" Foreground="White"/>
-
-                <!-- Bottom elements-->
-                <Rectangle Grid.Column="0" Grid.Row="4" Name="Rectangle_10" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="4" Name="text_10" Text="10" Foreground="White"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="4" Name="Rectangle_13" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Name="text_13" Text="13" Foreground="White"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="4" Name="Rectangle_16" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="4" Name="text_16" Text="16" Foreground="Black"/>
-            </Grid>
-
-            <Grid Name="ThirdNineNumbersGrid" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="56"/>
-                    <RowDefinition Height="6"/>
-                    <RowDefinition Height="56"/>
-                    <RowDefinition Height="6"/>
-                    <RowDefinition Height="56"/>
-                </Grid.RowDefinitions>
-                <!--Top Elements-->
-                <Rectangle Grid.Column="0" Grid.Row="0" Name="Rectangle_21" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" Name="text_21" Text="21" Foreground="Black"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="0" Name="Rectangle_24" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="0" Name="text_24" Text="24" Foreground="White"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="0" Name="Rectangle_27" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="0" Name="text_27" Text="27" Foreground="Black"/>
-
-                <!-- Middle elements-->
-                <Rectangle Grid.Column="0" Grid.Row="2" Name="Rectangle_20" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="2" Name="text_20" Text="20" Foreground="White"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="2" Name="Rectangle_23" Fill="Red"/>
-                <TextBlock Grid.Column="2" Grid.Row="2" Name="text_23" Text="23" Foreground="Black"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="2" Name="Rectangle_26" Fill="Black"/>
-                <TextBlock Grid.Column="4" Grid.Row="2" Name="text_26" Text="26" Foreground="White"/>
-
-                <!-- Bottom elements-->
-                <Rectangle Grid.Column="0" Grid.Row="4" Name="Rectangle_19" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="4" Name="text_19" Text="19" Foreground="Black"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="4" Name="Rectangle_22" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Name="text_22" Text="22" Foreground="White"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="4" Name="Rectangle_25" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="4" Name="text_25" Text="25" Foreground="Black"/>
-            </Grid>
-
-            <Grid Name="FourthNineNumbersGrid" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="5"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="56"/>
-                    <RowDefinition Height="6"/>
-                    <RowDefinition Height="56"/>
-                    <RowDefinition Height="6"/>
-                    <RowDefinition Height="56"/>
-                </Grid.RowDefinitions>
-                <!--Top Elements-->
-                <Rectangle Grid.Column="0" Grid.Row="0" Name="Rectangle_30" Fill="Red"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" Name="text_30" Text="30" Foreground="Black"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="0" Name="Rectangle_33" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="0" Name="text_33" Text="33" Foreground="White"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="0" Name="Rectangle_36" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="0" Name="text_36" Text="36" Foreground="Black"/>
-
-                <!-- Middle elements-->
-                <Rectangle Grid.Column="0" Grid.Row="2" Name="Rectangle_29" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="2" Name="text_29" Text="29" Foreground="White"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="2" Name="Rectangle_32" Fill="Red"/>
-                <TextBlock Grid.Column="2" Grid.Row="2" Name="text_32" Text="32" Foreground="Black"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="2" Name="Rectangle_35" Fill="Black"/>
-                <TextBlock Grid.Column="4" Grid.Row="2" Name="text_35" Text="35" Foreground="White"/>
-
-                <!-- Bottom elements-->
-                <Rectangle Grid.Column="0" Grid.Row="4" Name="Rectangle_28" Fill="Black"/>
-                <TextBlock Grid.Column="0" Grid.Row="4" Name="text_28" Text="28" Foreground="White"/>
-
-                <Rectangle Grid.Column="2" Grid.Row="4" Name="Rectangle_31" Fill="Black"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Name="text_31" Text="31" Foreground="White"/>
-
-                <Rectangle Grid.Column="4" Grid.Row="4" Name="Rectangle_34" Fill="Red"/>
-                <TextBlock Grid.Column="4" Grid.Row="4" Name="text_34" Text="34" Foreground="Black"/>
-            </Grid>
+        <Grid Name="NumbersGrid" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4">
+            <ItemsControl Name="ItemControlNumbers">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Name="numberBorder" Tag="{Binding BorderTag}" Background="{Binding Background}" Width="45" Height="56" CornerRadius="2" BorderThickness="2" BorderBrush="White" Margin="0,0,5,6">
+                            <TextBlock Tag="{Binding TextBlockName}" Grid.Column="{Binding GridColumn}" Grid.Row="{Binding GridRow}" FontFamily="Times New Roman" FontSize="26" 
+                                       Text="{Binding Text}" Foreground="{Binding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
         <Grid Name="ColumnGrid" Grid.Row="1" Grid.Column="6">
             <Grid.RowDefinitions>
@@ -273,12 +81,11 @@
                 <RowDefinition Height="58"/>
             </Grid.RowDefinitions>
             <Grid.Resources>
-                <Style TargetType="{x:Type Rectangle}">
-                    <Setter Property="Stroke" Value="White"/>
-                    <Setter Property="StrokeLineJoin" Value="Round"/>
-                    <Setter Property="StrokeStartLineCap" Value="Round"/>
-                    <Setter Property="StrokeEndLineCap" Value="Round"/>
-                    <Setter Property="StrokeThickness" Value="1"/>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="White"/>
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="CornerRadius" Value="3"/>
+                    <Setter Property="BorderThickness" Value="2"/>
                     <Setter Property="Width" Value="40"/>
                     <Setter Property="Height" Value="56"/>
                 </Style>
@@ -289,41 +96,44 @@
                     <Setter Property="FontSize" Value="20"/>
                 </Style>
             </Grid.Resources>
-            <Rectangle Name="ColumnC" Grid.Row="0" Fill="Black"/>
-            <TextBlock Grid.Row="0" Name="ColumnCText" Text="C" Foreground="White" RenderTransformOrigin="0.5,0.5">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
+            <Border Name="ColumnC" Grid.Row="0">
+                <TextBlock Grid.Row="0" Name="ColumnCText" Text="C" Foreground="White" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Border>
 
-            <Rectangle Name="ColumnB" Grid.Row="2" Fill="Black"/>
-            <TextBlock Grid.Row="2" Name="ColumnBText" Text="B" Foreground="White" RenderTransformOrigin="0.5,0.5">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
+            <Border Name="ColumnB" Grid.Row="2">
+                <TextBlock Grid.Row="2" Name="ColumnBText" Text="B" Foreground="White" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Border>
 
-            <Rectangle Name="ColumnA" Grid.Row="4" Fill="Black"/>
-            <TextBlock Grid.Row="4" Name="ColumnAText" Text="A" Foreground="White" RenderTransformOrigin="0.5,0.5">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
+            <Border Name="ColumnA" Grid.Row="4">
+                <TextBlock Grid.Row="4" Name="ColumnAText" Text="A" Foreground="White" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Border>
         </Grid>
         <Grid Name="WinningConditionsGrid" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4">
             <Grid.ColumnDefinitions>
@@ -337,19 +147,15 @@
                 <RowDefinition Height="55"/>
             </Grid.RowDefinitions>
             <Grid.Resources>
-                <Style TargetType="{x:Type Rectangle}">
-                    <Setter Property="Stroke" Value="White"/>
-                    <Setter Property="StrokeLineJoin" Value="Round"/>
-                    <Setter Property="StrokeStartLineCap" Value="Round"/>
-                    <Setter Property="StrokeEndLineCap" Value="Round"/>
-                    <Setter Property="StrokeThickness" Value="2"/>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="White"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="CornerRadius" Value="3"/>
                     <Setter Property="Width" Value="196"/>
                     <Setter Property="Height" Value="52"/>
-                    <Setter Property="RadiusX" Value="2"/>
-                    <Setter Property="RadiusY" Value="2"/>
                     <Setter Property="HorizontalAlignment" Value="Center"/>
                     <Setter Property="VerticalAlignment" Value="Center"/>
-                    <Setter Property="Fill" Value="Black"/>
                     <Setter Property="Margin" Value="2,0,2,0"/>
                 </Style>
                 <Style TargetType="{x:Type TextBlock}">
@@ -360,25 +166,35 @@
                     <Setter Property="Foreground" Value="White"/>
                 </Style>
             </Grid.Resources>
-            <Rectangle Name="is1Dozen" Grid.Row="1" Grid.Column="0"/>
-            <TextBlock Name="is1DozenText" Grid.Row="1" Grid.Column="0" Text="1st 12"/>
-            <Rectangle Name="is2Dozen" Grid.Row="1" Grid.Column="1"/>
-            <TextBlock Name="is2DozenText" Grid.Row="1" Grid.Column="1" Text="2st 12"/>
-            <Rectangle Name="is3Dozen" Grid.Row="1" Grid.Column="2"/>
-            <TextBlock Name="is3DozenText" Grid.Row="1" Grid.Column="2"  Text="3st 12"/>
+            <Border Name="is1Dozen" Grid.Row="1" Grid.Column="0">
+                <TextBlock Name="is1DozenText" Text="1st 12"/>
+            </Border>
+            <Border Name="is2Dozen" Grid.Row="1" Grid.Column="1">
+                <TextBlock Name="is2DozenText" Text="2st 12"/>
+            </Border>
+            <Border Name="is3Dozen" Grid.Row="1" Grid.Column="2">
+                <TextBlock Name="is3DozenText" Text="3st 12"/>
+            </Border>
 
-            <Rectangle Name="is1To18" Grid.Row="2" Grid.Column="0" Width="97" Height="52" HorizontalAlignment="Left"/>
-            <TextBlock Name="is1To18Text" Grid.Row="2" Grid.Column="0" Text="1 to 18" Margin="0,0,100,0"/>
-            <Rectangle Name="isEven" Grid.Row="2" Grid.Column="0" Width="97" Height="52" HorizontalAlignment="Right"/>
-            <TextBlock Name="isEvenText" Grid.Row="2" Grid.Column="0" Text="Even" Margin="100,0,0,0"/>
+            <Border Name="is1To18" Grid.Row="2" Grid.Column="0" Width="97" Height="52" HorizontalAlignment="Left">
+                <TextBlock Name="is1To18Text" Text="1 to 18"/>
+            </Border>
 
-            <Rectangle Name="isBlack" Grid.Row="2" Grid.Column="1" Width="97" Height="52" HorizontalAlignment="Left"/>
-            <Rectangle Name="isRed" Grid.Row="2" Grid.Column="1" Width="97" Height="52" HorizontalAlignment="Right" Fill="Red"/>
+            <Border Name="isEven" Grid.Row="2" Grid.Column="0" Width="97" Height="52" HorizontalAlignment="Right">
+                <TextBlock Name="isEvenText" Text="Even"/>
+            </Border>
 
-            <Rectangle Name="isOdd" Grid.Row="2" Grid.Column="2" Width="97" Height="52" HorizontalAlignment="Left"/>
-            <TextBlock Name="isOddText" Grid.Row="2" Grid.Column="2" Text="Odd" Margin="0,0,100,0"/>
-            <Rectangle Name="is19To36" Grid.Row="2" Grid.Column="2" Width="97" Height="52" HorizontalAlignment="Right"/>
-            <TextBlock Name="is19To36Text" Grid.Row="2" Grid.Column="2" Text="19 to 36" Margin="100,0,0,0"/>
+            <Border Name="isBlack" Grid.Row="2" Grid.Column="1" Width="97" Height="52" HorizontalAlignment="Left"/>
+            <Border Name="isRed" Grid.Row="2" Grid.Column="1" Width="97" Height="52" HorizontalAlignment="Right" Background="Red"/>
+
+            <Border Name="isOdd" Grid.Row="2" Grid.Column="2" Width="97" Height="52" HorizontalAlignment="Left">
+                <TextBlock Name="isOddText" Text="Odd"/>
+            </Border>
+
+            <Border Name="is19To36" Grid.Row="2" Grid.Column="2" Width="97" Height="52" HorizontalAlignment="Right">
+                <TextBlock Name="is19To36Text" Text="19 to 36"/>
+            </Border>
+            
         </Grid>
         <Popup x:Name="winningResultsPopup" IsOpen="False" PopupAnimation="Fade" Placement="Bottom" PlacementRectangle="880,330,0,0" AllowsTransparency="True" >
             <Border BorderThickness="1" BorderBrush="White" CornerRadius="5" Background="#FF626262" HorizontalAlignment="Right" 
